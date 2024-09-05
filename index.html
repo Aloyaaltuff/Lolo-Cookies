@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lolo Cookies</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add CSS here */
+        .nav-buttons a {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff; /* Default button color */
+            text-decoration: none; /* Remove underline from links */
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .nav-buttons a.blue {
+            background-color: #007bff;
+        }
+
+        .nav-buttons a.green {
+            background-color: #28a745;
+        }
+
+        .nav-buttons a.orange {
+            background-color: #fd7e14;
+        }
+
+        .nav-buttons a:hover,
+        .nav-buttons a:focus {
+            background-color: #0056b3; /* Darker color on hover */
+            transform: scale(1.05); /* Slightly enlarge the button */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
+        }
+
+        .nav-buttons a:active {
+            background-color: #004080; /* Even darker color when clicked */
+            transform: scale(0.95); /* Slightly shrink the button when clicked */
+        }
+    </style>
+</head>
+<body>
+    <!-- Slideshow Background -->
+    <div class="slideshow-container">
+        <div class="slide">
+            <img src="images/dan-dennis-o2-wEiq62tU-unsplash.jpg" alt="Slide 1">
+        </div>
+        <div class="slide">
+            <img src="images/american-heritage-chocolate-HuzdnhOfTKs-unsplash.jpg" alt="Slide 2">
+        </div>
+        <div class="slide">
+            <img src="images/chinh-le-duc-fJgWBipIhFg-unsplash.jpg" alt="Slide 3">
+        </div>
+        <div class="slide">
+            <img src="images/american-heritage-chocolate-anYw6uAevsY-unsplash.jpg" alt="Slide 4">
+        </div>
+    </div>
+
+    <!-- Header Bar -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/1.png" alt="Lolo Cookies Logo">
+            </div>
+            <div class="nav-buttons">
+                <a href="index.html" class="orange">Home</a>
+                <a href="products.html" class="orange">Products</a>
+                <a href="contact.html" class="orange">Contact</a>
+                <a href="about-us.html" class="orange">About Us</a>
+                <a href="login.html" class="orange">log in</a>
+            </div>
+        </div>
+        
+        <!-- Product Listing -->
+        <section id="products">
+            <div class="product-search"></div>
+            <input type="text" id="search" placeholder="Search cookies...">
+            <div class="filters">
+                <!-- Add filter options here -->
+            </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Section -->
+        <section id="home">
+            <h1>Welcome to Lolo Cookies!</h1>
+            <p>Discover the best cookies made with love.</p>
+        </section>
+
+            <div class="product-list">
+                <!-- Example Product -->
+                <div class="product-item">
+                    <img src="images/american-heritage-chocolate-DoK5qEy2L60-unsplash.jpg" alt=" ">
+                    <h3> </h3>
+                    <p> </p>
+                </div>
+                <!-- Add more products as needed -->
+            </div>
+        </section>
+    </section>
+</main>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/00971521286684" class="whatsapp-button" target="_blank">
+        <img src="images/whatsappmessage_conversation_whatsap_7149.ico" alt="Contact us on WhatsApp">
+    </a>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

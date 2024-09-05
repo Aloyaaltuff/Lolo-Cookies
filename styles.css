@@ -1,0 +1,256 @@
+root {
+    --padding: 8%;
+}
+/* Basic Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    overflow: hidden; /* Prevents scrollbars if content overflows */
+}
+
+
+
+/* Slideshow Styles */
+.slideshow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Cover the entire viewport height */
+    overflow: hidden;
+    z-index: 1; /* Ensure slideshow stays behind content */
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: opacity 1s ease-in-out; /* Smooth transition */
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the container */
+}
+/* Header Styles */
+header {
+    position: relative;
+    z-index: 2; /* Ensure header appears above the slideshow */
+    background-color: rgba(248, 195, 145, 0); /* Slightly transparent background for header */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    /* Logo Styles */
+.logo img {
+    max-height: 200px; /* Adjust this value to make the logo smaller */
+    width: auto; /* Maintain aspect ratio */
+    background-color: rgba(248, 195, 145, 0); /* Slightly transparent background for header */
+}
+  
+/* Header Container */
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Distribute space between logo and navigation */
+    align-items: center; /* Center items vertically */
+    background-color: rgba(248, 195, 145, 0); /* Slightly transparent background for header */
+}
+nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    margin: 0.8rem 1.5rem;
+}
+
+}
+/* Main Content Layout */
+main {
+    position: relative;
+    z-index: 2; /* Ensure main content appears above the slideshow */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.001); /* Semi-transparent white background */
+}
+
+
+/* Content Section Styles */
+section {
+    margin-bottom: 40px;
+}
+
+h1, h2, h3 {
+    color: #e67e22;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2em;
+}
+nav {
+    padding-top: 2.2rem;
+    padding-left: var(--padding);
+    padding-right: var(--padding);
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+p {
+    font-size: 1.5em;
+    line-height: 1.6;
+    color:#fff;
+}
+
+/* Product Listing */
+.product-item img {
+    max-width: 0px; /* Adjust the size of product images */
+    height: auto;
+}
+
+
+/* Floating WhatsApp Button */
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0); /* Slightly more opaque for better readability */
+    border-radius: 50%;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    z-index: 2; /* Ensure button appears above the slideshow */
+}
+
+.whatsapp-button:hover {
+    background-color: rgba(255, 255, 255, 0); /* Slightly more opaque for better readability */
+}
+
+.whatsapp-button img {
+    width: 50px; /* Adjust the size of the WhatsApp icon */
+}
+/* Base styles for buttons */
+.nav-buttons button {
+    display: inline-block;
+    padding: 10px 20px; /* Size of the button */
+    font-size: 16px;
+    color: #fff; /* Text color */
+    background-color:  #fd7e14; /* Default button color */
+    border: none; /* Remove default border */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.nav-buttons button.blue {
+    background-color:  #fd7e14; /* Blue color */
+}
+
+.nav-buttons button.green {
+    background-color: #fd7e14; /* Green color */
+}
+
+.nav-buttons button.orange {
+    background-color: #fd7e14; /* Orange color */
+}
+
+/* Hover and focus effects */
+.nav-buttons button:hover,
+.nav-buttons button:focus {
+    background-color: #0056b3; /* Darker button color on hover */
+    transform: scale(1.05); /* Slightly enlarge the button */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
+}
+
+/* Active state effects */
+.nav-buttons button:active {
+    background-color: #004080; /* Even darker button color when clicked */
+    transform: scale(0.95); /* Slightly shrink the button when clicked */
+}
+/* Product Categories Styles */
+.product-categories {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-categories h1 {
+    margin-bottom: 20px;
+}
+
+.category-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.category-item {
+    margin: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-item img {
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.category-item:hover img {
+    transform: scale(1.05); /* Slightly enlarge image on hover */
+}
+
+.category-item h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.category-item a {
+    text-decoration: none;
+    color: inherit;
+}
+/* Catalog Styles */
+.catalog {
+    padding: 20px;
+}
+
+.cookie-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cookie-item {
+    margin: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cookie-item img {
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.cookie-item:hover img {
+    transform: scale(1.05); /* Slightly enlarge image on hover */
+}
+
+.cookie-item p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+}
