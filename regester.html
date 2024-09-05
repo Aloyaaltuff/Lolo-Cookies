@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* Add CSS here */
+    .nav-buttons a {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #007bff; /* Default button color */
+        text-decoration: none; /* Remove underline from links */
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .nav-buttons a.blue {
+        background-color: #007bff;
+    }
+
+    .nav-buttons a.green {
+        background-color: #28a745;
+    }
+
+    .nav-buttons a.orange {
+        background-color: #fd7e14;
+    }
+
+    .nav-buttons a:hover,
+    .nav-buttons a:focus {
+        background-color: #0056b3; /* Darker color on hover */
+        transform: scale(1.05); /* Slightly enlarge the button */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
+    }
+
+    .nav-buttons a:active {
+        background-color: #004080; /* Even darker color when clicked */
+        transform: scale(0.95); /* Slightly shrink the button when clicked */
+    }
+</style>
+<body>
+    
+    <h1>Register</h1>
+    <form method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <input type="submit" value="Register">
+    </form>
+    <p>Already have an account? <a href="login.html">Login here</a></p>
+</body>
+</html>
