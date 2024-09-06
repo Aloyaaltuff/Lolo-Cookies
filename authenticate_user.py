@@ -30,7 +30,7 @@ def authenticate(username, password):
 if __name__ == "__main__":
     # Uncomment the following line to create a new user (for testing purposes)
     # save_user('testuser', 'password123')
-    
+    save_user('testuser', 'password123') 
     username = input('Enter username: ')
     password = input('Enter password: ')
     if authenticate(username, password):
