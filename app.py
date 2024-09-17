@@ -6,6 +6,7 @@ import json
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 app.config['SECRET_KEY'] = 'alo0987667890'
 
@@ -13,7 +14,8 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(150), unique=True, nullable=False)
     password = db.Column(db.String(150), nullable=False)
-
+ def __repr__(self):
+        return f'<User {self.username}>'
 # Create the database and tables
 with app.app_context():
     db.create_all()
@@ -30,11 +32,18 @@ def save_users(users):
     """Save users to a JSON file."""
     with open('users.json', 'w') as f:
         json.dump(users, f)
+class Cookie(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80), unique=True, nullable=False)
+    price = db.Column(db.Float, nullable=False)
+
+    def __repr__(self):
+        return f'<Cookie {self.name}>'
 
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('index.html')
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -55,7 +64,7 @@ def register():
         db.session.commit()
         flash('Registration successful! You can now log in.', 'success')
         return redirect(url_for('login'))
-    return render_template('login.html')
+    return render_template('register.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
