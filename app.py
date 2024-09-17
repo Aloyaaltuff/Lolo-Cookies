@@ -73,6 +73,10 @@ def login():
 
     return render_template('login.html')
 
+@app.route('/menu')
+def menu():
+    cookies = Cookie.query.all()  # Fetch all cookies from the database
+    return render_template('products.html', cookies=cookies)
 
 if __name__ == '__main__':
     app.run('0.0.0.0',debug=True)
