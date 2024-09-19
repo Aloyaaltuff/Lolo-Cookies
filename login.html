@@ -5,106 +5,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add CSS here */
+        .nav-buttons a {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff; /* Default button color */
+            text-decoration: none; /* Remove underline from links */
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .nav-buttons a:hover,
+        .nav-buttons a:focus {
+            background-color: #0056b3; /* Darker color on hover */
+            transform: scale(1.05); /* Slightly enlarge the button */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
+        }
+
+        /* Additional styling for the form */
+        body {
+            font-family: Arial, sans-serif;
+            color: #333; /* Ensure text is visible */
+            background-color: #f4f4f4; /* Light background for contrast */
+        }
+
+        form {
+            max-width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        h1 {
+            text-align: center; /* Center the heading */
+            margin-top: 20px; /* Space above the heading */
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: 20px auto;
+        }
+
+        .slide img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .logo img {
+            max-height: 50px;
+        }
+    </style>
 </head>
-<style>
-    /* Add CSS here */
-    .nav-buttons a {
-        display: inline-block;
-        padding: 10px 20px;
-        font-size: 16px;
-        color: #fff;
-        background-color: #007bff; /* Default button color */
-        text-decoration: none; /* Remove underline from links */
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .nav-buttons a.blue {
-        background-color: #007bff;
-    }
-
-    .nav-buttons a.green {
-        background-color: #28a745;
-    }
-
-    .nav-buttons a.orange {
-        background-color: #fd7e14;
-    }
-
-    .nav-buttons a:hover,
-    .nav-buttons a:focus {
-        background-color: #0056b3; /* Darker color on hover */
-        transform: scale(1.05); /* Slightly enlarge the button */
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
-    }
-
-    .nav-buttons a:active {
-        background-color: #004080; /* Even darker color when clicked */
-        transform: scale(0.95); /* Slightly shrink the button when clicked */
-    }
-
-    /* Additional styling for the form */
-    form {
-        max-width: 300px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #f9f9f9;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: bold;
-    }
-
-    input[type="text"], input[type="password"] {
-        width: 100%;
-        padding: 8px;
-        margin-bottom: 16px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
-
-    input[type="submit"] {
-        width: 100%;
-        padding: 10px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    input[type="submit"]:hover {
-        background-color: #0056b3;
-    }
-
-    .slideshow-container {
-        position: relative;
-        max-width: 100%;
-        margin: 20px auto;
-    }
-
-    .slide img {
-        width: 100%;
-        border-radius: 8px;
-    }
-
-    .header-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px;
-        background-color: #fff;
-    }
-
-    .logo img {
-        max-height: 50px;
-    }
-</style>
 <body>
     <!-- Slideshow Background -->
     <div class="slideshow-container">
@@ -134,15 +130,18 @@
     <h1>Login</h1>
     <form method="post" action="/login">
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br><br>
+        <input type="text" id="username" name="username" required>
+        
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br><br>
-	<label for="phone_number">Phone Number (Optional):</label>
-        <input type="tel" id="phone_number" name="phone_number" placeholder="+1234567890"><br><br>
+        <input type="password" id="password" name="password" required>
+
+        <label for="phone_number">Phone Number (Optional):</label>
+        <input type="tel" id="phone_number" name="phone_number" placeholder="+1234567890">
+
         <input type="submit" value="Login">
     </form>
     <p>Don't have an account? <a href="register.html">Register here</a></p>
-<script src="scripts.js"></script>
+    
+    <script src="scripts.js"></script>
 </body>
 </html>
-
