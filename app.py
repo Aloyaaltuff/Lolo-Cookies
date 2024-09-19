@@ -3,12 +3,17 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from basemode import add_user, authenticate
 import json
+from models.user import User
+from models.order import Order
+from file_storage import FileStorage
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 app.config['SECRET_KEY'] = 'alo0987667890'
+storage = FileStorage()
+storage.reload()
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -86,6 +91,51 @@ def login():
 def menu():
     cookies = Cookie.query.all()  # Fetch all cookies from the database
     return render_template('products.html', cookies=cookies)
+
+@app.route('/place_order', methods=['POST'])
+def place_order():
+    try:
+        # Extract form data
+        cookie_id = request.form['cookie_id']
+        quantity = int(request.form['quantity'])
+        phone_number = request.form['phone_number']
+
+        # Check if the phone number is provided
+        if not phone_number:
+            return jsonify({"success": False, "error": "Phone number is required!"}), 400
+
+        # Create a new user or find existing one (for simplicity, assume the user is new)
+        user = User(username="guest", email="guest@example.com", phone_number=phone_number)
+        storage.new(user)
+        storage.save()
+
+        # Create the order
+        order = create_order(user, cookie_id, quantity)
+        
+        return jsonify({"success": True}), 200
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+def create_order(user, cookie_id, quantity):
+    total_price = calculate_price(cookie_id, quantity)
+    order = Order(user_id=user.id, cookie_id=cookie_id, quantity=quantity, total_price=total_price)
+    storage.new(order)
+    storage.save()
+
+    order_details = (
+        f"Hello {user.username},\n\n"
+        f"Your order has been placed successfully!\n\n"
+        f"Order ID: {order.id}\n"
+        f"Cookie: {cookie_id}\n"
+        f"Quantity: {quantity}\n"
+        f"Total Price: ${order.total_price:.2f}\n\n"
+        "Thank you for ordering from Lolo Cookies!"
+    )
+
+    # Send the order details via WhatsApp
+    send_whatsapp_message(user.phone_number, order_details)
+
+    return order
 
 if __name__ == '__main__':
     app.run('0.0.0.0',debug=True)
