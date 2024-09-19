@@ -23,7 +23,7 @@ class User(db.Model):
         return f'<User {self.username}>'
         # Create the database and tables
     with app.app_context():
-    db.create_all()
+        db.create_all()
 
 def load_users():
     """Load users from a JSON file."""
