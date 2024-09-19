@@ -80,7 +80,7 @@ def login():
         user = User.query.filter_by(username=username).first()
         if user and check_password_hash(user.password, password):
             flash('Login successful!', 'success')
-            return redirect(url_for('order-page'))
+            return redirect(url_for('order'))
 
         else:
             flash('Invalid username or password. Please try again.', 'error')
