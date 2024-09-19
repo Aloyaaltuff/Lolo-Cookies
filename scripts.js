@@ -1,11 +1,4 @@
-document.querySelector('form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission
 
-    // You can validate the form or do any other logic here
-
-    // Redirect to another page
-    window.location.href = '/order'; // Change the URL to the order page
-});
 document.addEventListener('DOMContentLoaded', function() {
     const slides = document.querySelectorAll('.slide');
     let currentIndex = 0;
@@ -34,3 +27,11 @@ function changeColor(color) {
         button.style.backgroundColor = color;
     });
 }
+document.querySelector('form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // You can validate the form or do any other logic here
+
+    // Redirect to another page
+    window.location.href = '/order'; // Change the URL to the order page
+});
