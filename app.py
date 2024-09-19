@@ -85,7 +85,7 @@ def login():
         else:
             flash('Invalid username or password. Please try again.', 'error')
     if user_is_authenticated:
-        return redirect(url_for('order_page'))
+        return redirect(url_for('order'))
         else:
             return "Invalid credentials", 401
 
