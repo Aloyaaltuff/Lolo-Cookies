@@ -143,16 +143,6 @@
     </form>
     <p>Don't have an account? <a href="register.html">Register here</a></p>
 
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-        <ul>
-        {% for message in messages %}
-            <li>{{ message }}</li>
-        {% endfor %}
-        </ul>
-    {% endif %}
-    {% endwith %}
-
 </body>
 </html>
 
