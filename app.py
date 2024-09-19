@@ -84,8 +84,15 @@ def login():
 
         else:
             flash('Invalid username or password. Please try again.', 'error')
+    if user_is_authenticated:
+        return redirect(url_for('order_page'))
+        else:
+            return "Invalid credentials", 401
 
     return render_template('login.html')
+@app.route('/order')
+def order_page():
+    return render_template('order.html')
 
 @app.route('/menu')
 def menu():
