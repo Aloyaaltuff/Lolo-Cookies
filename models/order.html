@@ -1,57 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Place Your Order - Lolo Cookies</title>
-     <link rel="stylesheet" href="styles1.css">
+    <title>Place Order - Lolo Cookies</title>
 </head>
 <body>
-    <h1>Order Your Favorite Cookies</h1>
-    <form id="orderForm" action="/place_order" method="POST">
-        <label for="cookie_id">Choose your cookie:</label>
-        <select name="cookie_id" id="cookie_id">
-            <option value="choco_chip_001">Chocolate Chip</option>
-            <option value="oatmeal_002">Oatmeal Raisin</option>
-            <option value="sugar_003">Sugar Cookie</option>
-        </select>
-        <br>
-
+    <h1>Place Your Order</h1>
+    <form action="{{ url_for('place_order') }}" method="POST">
+        <label for="cookie_id">Cookie ID:</label>
+        <input type="text" id="cookie_id" name="cookie_id" value="{{ request.args.get('cookie_id', '') }}" readonly><br><br>
+        
         <label for="quantity">Quantity:</label>
-        <input type="number" id="quantity" name="quantity" min="1" value="1">
-        <br>
-
-        <label for="phone_number">Phone Number (WhatsApp):</label>
-        <input type="text" id="phone_number" name="phone_number" placeholder="+1234567890">
-        <br>
-
-        <button type="submit">Place Order</button>
+        <input type="number" id="quantity" name="quantity" required><br><br>
+        
+        <label for="phone_number">Phone Number:</label>
+        <input type="text" id="phone_number" name="phone_number" placeholder="+1234567890" required><br><br>
+        
+        <input type="submit" value="Place Order">
     </form>
-
-    <div id="message"></div>
-
-    <script>
-        // JavaScript for handling form submission feedback
-        const orderForm = document.getElementById('orderForm');
-        const messageDiv = document.getElementById('message');
-
-        orderForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const formData = new FormData(orderForm);
-            const response = await fetch('/place_order', {
-                method: 'POST',
-                body: formData,
-            });
-
-            const result = await response.json();
-            if (result.success) {
-                messageDiv.innerHTML = `<p>Order placed successfully! A confirmation has been sent to your WhatsApp.</p>`;
-            } else {
-                messageDiv.innerHTML = `<p>Failed to place order: ${result.error}</p>`;
-            }
-        });
-    </script>
 </body>
 </html>
-
