@@ -93,7 +93,9 @@ def login():
     return render_template('login.html')
 @app.route('/order')
 def order_page():
-    return render_template('order.html')
+  cookie_id = request.args.get('cookie_id')
+    return render_template('order.html', cookie_id=cookie_id)
+
 
 @app.route('/menu')
 def menu():
